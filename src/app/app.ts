@@ -17,6 +17,7 @@ export class App implements OnInit {
 
   public dificuldadeSelecionada?: string;
   public tentativasRestantes: number = 0;
+  public pontuacao: number = 100;
 
   ngOnInit(): void {}
 
@@ -55,6 +56,11 @@ export class App implements OnInit {
     else if (this.numeroDigitado > this.numeroSecreto)
       this.dicaNumeroMenorQue = this.numeroDigitado;
     else this.jogoEstaFinalizado = true;
+
+    const diferencaNumerica: number = Math.abs(this.numeroSecreto - this.numeroDigitado);
+    if (diferencaNumerica >= 10) this.pontuacao -= 10;
+    else if (diferencaNumerica >= 5) this.pontuacao -= 5;
+    else this.pontuacao -= 2;
   }
   public reiniciar(): void {
     this.numeroDigitado = 1;
@@ -62,6 +68,7 @@ export class App implements OnInit {
     this.dicaNumeroMenorQue = 100;
     this.jogoEstaFinalizado = false;
     this.dificuldadeSelecionada = undefined;
+    this.pontuacao = 100;
   }
   private obterNumeroSecreto(max: number) {
     const numeroAleatorio: number = Math.random() * (max - 1) + 1;
