@@ -2,21 +2,24 @@
   <h1>Jogo da Advinhação</h1>
 
   <main class="row-cols-3 d-flex align-items-center bg-danger-subtle rounded text-center p-5 mt-5">
-      <label class="display-1">{{dicaNumeroMaiorQue}}></label>
+    <label class="display-1">{{ dicaNumeroMaiorQue }}></label>
 
-       <div class="d-flex flex-column gap-2">
-          <input [(ngModel)]="numeroDigitado" class="display-1 text-center" type="number" min="1" max="100">
-          
-          @if (!jogoEstaFinalizado){
-            <button (click)="adivinhar()" class="btn btn-primary">Adivinhar</button>
-          }@else{
-            <button (click)="reiniciar()" class="btn btn-success">Reiniciar</button>
-          }        
-          
-       </div>
+    <div class="d-flex flex-column gap-2">
+      <input
+        [(ngModel)]="numeroDigitado"
+        class="display-1 text-center"
+        type="number"
+        min="1"
+        max="100"
+      />
 
-      <label class="display-1"><{{dicaNumeroMenorQue}}</label>
-      
+      @if (!jogoEstaFinalizado) {
+        <button (click)="adivinhar()" class="btn btn-primary">Adivinhar</button>
+      } @else {
+        <button (click)="reiniciar()" class="btn btn-success">Reiniciar</button>
+      }
+    </div>
 
+    <label class="display-1"><{{ dicaNumeroMenorQue }}</label>
   </main>
 </div>
