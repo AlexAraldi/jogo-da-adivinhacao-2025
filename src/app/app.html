@@ -1,6 +1,21 @@
 <div class="d-flex flex-column justify-content-center align-items-center h-100">
   <h1>Jogo da Advinhação</h1>
 
+  <section>
+    <h2>Ranking de partidas</h2>
+
+    <div class="d-flex flex-column bg-success-subtle rounded p-2 gap-2">
+      @for (dificuldade of dificuldadeJogada; track $index; let i = $index) {
+        <div class="d-flex align-items-baseline gap-3">
+          <span class="f-5"><strong>Dificuldade:</strong> {{ dificuldade }}</span>
+          <span class="f-5"><strong>Pontos:</strong> {{ ultimaPontuacao[i] ?? '—' }}</span>
+        </div>
+      } @empty {
+        <div class="text-muted">>> Nenhuma partida ainda... :(</div>
+      }
+    </div>
+  </section>
+
   <section class="mt-5">
     <h2>Seleção de Difiduldade</h2>
 

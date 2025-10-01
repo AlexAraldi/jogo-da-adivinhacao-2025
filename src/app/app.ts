@@ -18,6 +18,8 @@ export class App implements OnInit {
   public dificuldadeSelecionada?: string;
   public tentativasRestantes: number = 0;
   public pontuacao: number = 100;
+  public ultimaPontuacao: number[] = [];
+  public dificuldadeJogada: string[] = [];
 
   ngOnInit(): void {}
 
@@ -41,7 +43,7 @@ export class App implements OnInit {
         this.tentativasRestantes = 7;
         break;
     }
-
+    this.dificuldadeJogada.push(dificuldade);
     this.dificuldadeSelecionada = dificuldade;
   }
 
@@ -67,6 +69,7 @@ export class App implements OnInit {
     this.dicaNumeroMaiorQue = 1;
     this.dicaNumeroMenorQue = 100;
     this.jogoEstaFinalizado = false;
+    this.ultimaPontuacao.push(this.pontuacao);
     this.dificuldadeSelecionada = undefined;
     this.pontuacao = 100;
   }
